@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/smparsons/autoplaylist#readme",
   "dependencies": {
+    "@material-ui/core": "^4.3.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
@@ -35,6 +36,7 @@
     "tslint-react": "^4.0.0",
     "typescript": "^3.5.3",
     "webpack": "^4.39.2",
+    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.8.0"
   }
