@@ -1,1 +1,1 @@
-export * from './videoPlayer'
+export * from './videoPlayerPage'

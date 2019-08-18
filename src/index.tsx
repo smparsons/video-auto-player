@@ -3,14 +3,14 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
 import { ApplicationBar } from './components'
-import { VideoPlayer } from './videoPlayer'
+import { VideoPlayerPage } from './videoPlayer'
 import './index.css'
 
 export const App = (): JSX.Element => (
     <>
         <CssBaseline />
         <ApplicationBar />
-        <VideoPlayer />
+        <VideoPlayerPage />
     </>
 );
 
