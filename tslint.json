@@ -17,6 +17,7 @@
     "interface-name": false,
     "no-any": true,
     "no-var-keyword": true,
+    "jsx-no-multiline-js": false,
     "object-literal-sort-keys": false,
     "jsx-no-lambda": false,
     "quotemark": false,
