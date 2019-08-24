@@ -5,7 +5,7 @@ import { ImportFileButton } from '../components'
 
 const processFile = (fileList: FileList | null): void => {
     // tslint:disable-next-line
-    console.log(JSON.stringify(fileList));
+    console.log(JSON.stringify(fileList))
 }
 
 export const MyPlaylists = (): JSX.Element => {
@@ -21,5 +21,5 @@ export const MyPlaylists = (): JSX.Element => {
                 Import Playlist
             </ImportFileButton>
         </>
-    );
-};
+    )
+}

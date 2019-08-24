@@ -12,6 +12,6 @@ export const App = (): JSX.Element => (
         <ApplicationBar />
         <VideoPlayerPage />
     </>
-);
+)
 
 ReactDOM.render(<App />, document.getElementById('root'))

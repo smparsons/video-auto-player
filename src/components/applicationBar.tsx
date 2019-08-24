@@ -7,4 +7,4 @@ export const ApplicationBar = (): JSX.Element => (
             <Typography variant="h6">AutoPlaylist</Typography>
         </Toolbar>
     </AppBar>
-);
+)
