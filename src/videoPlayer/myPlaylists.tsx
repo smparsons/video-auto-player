@@ -18,7 +18,7 @@ export const MyPlaylists = (): JSX.Element => {
                 accept=".json,application/json"
                 onFileSelected={onFileSelected}
             >
-                Upload
+                Import Playlist
             </SelectFileButton>
         </>
     );
