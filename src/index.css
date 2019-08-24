@@ -5,3 +5,7 @@
 .hidden-file-input {
     display: none;
 }
+
+.error-text {
+    color: red;
+}
