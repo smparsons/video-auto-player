@@ -1,9 +1,9 @@
 import { Typography } from '@material-ui/core'
 import * as React from 'react'
 
-import { SelectFileButton } from '../components'
+import { ImportFileButton } from '../components'
 
-const onFileSelected = (fileList: FileList | null): void => {
+const processFile = (fileList: FileList | null): void => {
     // tslint:disable-next-line
     console.log(JSON.stringify(fileList));
 }
@@ -14,12 +14,12 @@ export const MyPlaylists = (): JSX.Element => {
             <Typography variant="body1">
                 Please import a playlist:
             </Typography>
-            <SelectFileButton
+            <ImportFileButton
                 accept=".json,application/json"
-                onFileSelected={onFileSelected}
+                onFileImported={processFile}
             >
                 Import Playlist
-            </SelectFileButton>
+            </ImportFileButton>
         </>
     );
 };

@@ -1,18 +1,18 @@
 import { Button } from '@material-ui/core'
 import * as React from 'react'
 
-const selectFile = (fileInputRef: React.RefObject<HTMLInputElement>): void => {
+const openFileDialog = (fileInputRef: React.RefObject<HTMLInputElement>): void => {
     const fileInputDomObject = fileInputRef.current
     if (fileInputDomObject) {
         fileInputDomObject.click()
     }
 }
 
-export const SelectFileButton = ({
+export const ImportFileButton = ({
     accept,
     children,
-    onFileSelected
-}: SelectFileButtonProps): JSX.Element => {
+    onFileImported
+}: ImportFileButtonProps): JSX.Element => {
     const fileInputRef = React.useRef(null)
     return (
         <>
@@ -21,13 +21,13 @@ export const SelectFileButton = ({
                 accept={accept}
                 ref={fileInputRef}
                 multiple={false}
-                onChange={(event) => onFileSelected(event.target.files)}
+                onChange={(event) => onFileImported(event.target.files)}
                 className="hidden-file-input"
             />
             <Button
                 variant="contained"
                 color="primary"
-                onClick={() => selectFile(fileInputRef)}
+                onClick={() => openFileDialog(fileInputRef)}
             >
                 {children}
             </Button>
@@ -35,8 +35,8 @@ export const SelectFileButton = ({
     )
 }
 
-interface SelectFileButtonProps {
+interface ImportFileButtonProps {
     accept: string,
     children: string,
-    onFileSelected: (file: FileList | null) => void
+    onFileImported: (file: FileList | null) => void
 }
