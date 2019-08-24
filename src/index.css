@@ -1,3 +1,7 @@
 .video-player-wrapper {
     padding: 16px;
 }
+
+.hidden-file-input {
+    display: none;
+}

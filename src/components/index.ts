@@ -1,2 +1,2 @@
 export * from './applicationBar'
-export * from './fileUploadButton'
+export * from './selectFileButton'
