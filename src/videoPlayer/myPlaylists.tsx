@@ -16,7 +16,7 @@ const readPlaylistJsonFromFile = (file: File): Promise<Playlist> => new Promise(
 const processFile = async (fileList: FileList | null): Promise<void> => {
     const importedPlaylist = fileList && fileList[0]
     if (!importedPlaylist) {
-        throw new Error("There was a problem trying to read the imported file.");
+        throw new Error("There was a problem trying to read the imported file.")
     }
     const playlistJson = await readPlaylistJsonFromFile(importedPlaylist)
     // tslint:disable-next-line
