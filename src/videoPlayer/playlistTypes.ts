@@ -9,7 +9,9 @@ export interface VideoGroup {
 }
 
 export interface Video {
+    videoId: number
     description: string
     title: string
+    subtitle: string
     url: string
 }

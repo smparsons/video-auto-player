@@ -26,11 +26,12 @@ const playlistInValidFormat = (playlist: Playlist): boolean => {
         return Number.isInteger(groupId)
             && validateRequiredString(groupName)
             && Array.isArray(videos) && videos.every((video) => {
-                const { description, title, url } = video
+                const { description, title, url, videoId } = video
 
                 return validateRequiredString(description)
                     && validateRequiredString(title)
                     && validateRequiredString(url)
+                    && Number.isInteger(videoId)
             })
     })
 }

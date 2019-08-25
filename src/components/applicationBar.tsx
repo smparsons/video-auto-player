@@ -4,7 +4,7 @@ import * as React from 'react'
 export const ApplicationBar = (): JSX.Element => (
     <AppBar position="static" className="navigation-bar">
         <Toolbar variant="dense">
-            <Typography variant="h6">AutoPlaylist</Typography>
+            <Typography variant="h6">Autoplaylist</Typography>
         </Toolbar>
     </AppBar>
 )

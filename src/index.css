@@ -9,3 +9,29 @@
 .error-text {
     color: red;
 }
+
+.video-player-section {
+    padding: 16px;
+}
+
+.playlist {
+    overflow-y: scroll;
+    max-height: 90vh;
+}
+
+.playlist-video-item {
+    cursor: pointer;
+}
+
+.playlist-video-item:hover {
+    background: #f2f2f2
+}
+
+.playlist-video-item.selected {
+    background: #e6e6e6
+}
+
+.video-display {
+    display: grid;
+    grid-gap: 16px;
+}
