@@ -3,7 +3,7 @@ import * as React from 'react'
 
 import { Video } from './playlistTypes'
 
-export const VideoDisplay = ({ video, onVideoFinished }: VideoDisplayProps) => {
+export const VideoDisplay = ({ video, onVideoFinished }: VideoDisplayProps): JSX.Element => {
     // Using any here because the typings for HTMLVideoElement don't seem
     // to have some of the fullscreen API functions.
     /* tslint:disable-next-line:no-any */

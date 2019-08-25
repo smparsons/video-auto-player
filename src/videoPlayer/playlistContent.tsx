@@ -13,7 +13,7 @@ import * as React from 'react'
 
 import { Playlist, Video, VideoGroup } from './playlistTypes'
 
-export const PlaylistContent = ({ playlist, currentVideo, onVideoSelected }: PlaylistContentProps) => {
+export const PlaylistContent = ({ playlist, currentVideo, onVideoSelected }: PlaylistContentProps): JSX.Element => {
     const { groups } = playlist
     const initialGroupId = groups[0].groupId as number | false
     const [currentGroupId, setCurrentGroupId] = React.useState(initialGroupId)
