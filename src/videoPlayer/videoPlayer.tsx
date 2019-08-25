@@ -11,7 +11,10 @@ export const VideoPlayer = ({ playlist }: VideoPlayerProps): JSX.Element => {
     return (
         <Grid container={true} spacing={2}>
             <Grid item={true} md={8} sm={12} xs={12}>
-                <VideoDisplay video={currentVideo} />
+                <VideoDisplay
+                    video={currentVideo}
+                    onVideoFinished={() => { return }}
+                />
             </Grid>
             <Grid item={true} md={4} sm={12} xs={12}>
                 <PlaylistContent

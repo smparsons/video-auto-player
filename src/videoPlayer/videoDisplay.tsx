@@ -3,13 +3,34 @@ import * as React from 'react'
 
 import { Video } from './playlistTypes'
 
-export const VideoDisplay = ({ video }: VideoDisplayProps) => {
-    const videoRef = React.useRef(null) as React.RefObject<HTMLVideoElement>
+export const VideoDisplay = ({ video, onVideoFinished }: VideoDisplayProps) => {
+    // Using any here because the typings for HTMLVideoElement don't seem
+    // to have some of the fullscreen API functions.
+    /* tslint:disable-next-line:no-any */
+    const videoRef = React.useRef(null) as React.RefObject<any>
 
     React.useEffect(() => {
         const videoDomObject = videoRef.current
         if (videoDomObject) {
             videoDomObject.play()
+
+            const enterFullscreenMode = videoDomObject.requestFullscreen
+                || videoDomObject.webkitRequestFullscreen
+                || videoDomObject.mozRequestFullScreen
+                || videoDomObject.msRequestFullscreen
+
+            enterFullscreenMode.call(videoDomObject)
+
+            videoDomObject.addEventListener('ended', () => {
+                const exitFullscreenMode = videoDomObject.exitFullscreen
+                    || videoDomObject.webkitExitFullscreen
+                    || videoDomObject.mozCancelFullScreen
+                    || videoDomObject.msExitFullscreen
+
+                exitFullscreenMode.call(videoDomObject)
+
+                onVideoFinished()
+            }, false)
         }
     })
 
@@ -46,4 +67,5 @@ export const VideoDisplay = ({ video }: VideoDisplayProps) => {
 
 interface VideoDisplayProps {
     video: Video | null
+    onVideoFinished: () => void
 }
