@@ -21,16 +21,7 @@ export const VideoDisplay = ({ video, onVideoFinished }: VideoDisplayProps): JSX
 
             enterFullscreenMode.call(videoDomObject)
 
-            videoDomObject.addEventListener('ended', () => {
-                const exitFullscreenMode = videoDomObject.exitFullscreen
-                    || videoDomObject.webkitExitFullscreen
-                    || videoDomObject.mozCancelFullScreen
-                    || videoDomObject.msExitFullscreen
-
-                exitFullscreenMode.call(videoDomObject)
-
-                onVideoFinished()
-            }, false)
+            videoDomObject.addEventListener('ended', onVideoFinished, false)
         }
     })
 
