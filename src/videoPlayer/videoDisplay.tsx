@@ -7,7 +7,7 @@ export const VideoDisplay = ({ video, onVideoFinished }: VideoDisplayProps): JSX
     // Using any here because the typings for HTMLVideoElement don't seem
     // to have some of the fullscreen API functions.
     /* tslint:disable-next-line:no-any */
-    const videoRef = React.useRef(null) as React.RefObject<any>
+    const videoRef = React.useRef<any>(null)
 
     React.useEffect(() => {
         const videoDomObject = videoRef.current
