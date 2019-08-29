@@ -5,10 +5,7 @@ import * as React from 'react'
 import { Video } from './playlistTypes'
 
 export const VideoDisplay = ({ autoFullscreen, video, onVideoFinished }: VideoDisplayProps): JSX.Element => {
-    // Using any here because the typings for HTMLVideoElement don't seem
-    // to have some of the fullscreen API functions.
-    /* tslint:disable-next-line:no-any */
-    const videoRef = React.useRef<any>(null)
+    const videoRef = React.useRef(null)
 
     React.useEffect(() => {
         const videoDomObject = videoRef.current
