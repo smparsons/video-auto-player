@@ -1,9 +1,10 @@
 import { Paper, Typography } from '@material-ui/core'
+import Plyr from 'plyr'
 import * as React from 'react'
 
 import { Video } from './playlistTypes'
 
-export const VideoDisplay = ({ video, onVideoFinished }: VideoDisplayProps): JSX.Element => {
+export const VideoDisplay = ({ autoFullscreen, video, onVideoFinished }: VideoDisplayProps): JSX.Element => {
     // Using any here because the typings for HTMLVideoElement don't seem
     // to have some of the fullscreen API functions.
     /* tslint:disable-next-line:no-any */
@@ -12,16 +13,13 @@ export const VideoDisplay = ({ video, onVideoFinished }: VideoDisplayProps): JSX
     React.useEffect(() => {
         const videoDomObject = videoRef.current
         if (videoDomObject) {
-            videoDomObject.play()
+            const player = new Plyr(videoDomObject, {
+                fullscreen: { fallback: 'force' }
+            })
 
-            const enterFullscreenMode = videoDomObject.requestFullscreen
-                || videoDomObject.webkitRequestFullscreen
-                || videoDomObject.mozRequestFullScreen
-                || videoDomObject.msRequestFullscreen
-
-            enterFullscreenMode.call(videoDomObject)
-
-            videoDomObject.addEventListener('ended', onVideoFinished, false)
+            player.play()
+            if (autoFullscreen) player.fullscreen.enter()
+            player.on('ended', onVideoFinished)
         }
     })
 
@@ -57,6 +55,7 @@ export const VideoDisplay = ({ video, onVideoFinished }: VideoDisplayProps): JSX
 }
 
 interface VideoDisplayProps {
+    autoFullscreen: boolean
     video: Video | null
     onVideoFinished: () => void
 }

@@ -48,6 +48,7 @@ export const VideoPlayer = ({ playlist }: VideoPlayerProps): JSX.Element => {
             <Grid item={true} md={8} sm={12} xs={12}>
                 <VideoDisplay
                     video={currentVideo}
+                    autoFullscreen={true}
                     onVideoFinished={() => {
                         if (nextVideo) {
                             setVideoPlayerState({
