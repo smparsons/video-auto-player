@@ -34,8 +34,8 @@ export const VideoDisplay = ({ autoFullscreen, video, onVideoFinished }: VideoDi
                                     {video.subtitle}
                                 </Typography>
                             </div>
-                            <div key={video.url}>
-                                <video controls={true} ref={videoRef}>
+                            <div key={video.url} className="video-wrapper">
+                                <video controls={true} ref={videoRef} width={500} height={500}>
                                     <source src={video.url} />
                                 </video>
                             </div>
