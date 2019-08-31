@@ -4,8 +4,8 @@ import * as ReactDOM from 'react-dom'
 
 import { ApplicationBar } from './components'
 import { VideoPlayerPage } from './videoPlayer'
-import './index.css'
-import './plyr.min.css'
+import './css/index.css'
+import './css/plyr.min.css'
 
 export const App = (): JSX.Element => (
     <>
