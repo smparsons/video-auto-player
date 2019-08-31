@@ -53,14 +53,14 @@ export const MyPlaylists = ({ onPlaylistSelected }: MyPlaylistsProps): JSX.Eleme
 
     return (
         <>
-            <Typography variant="body1">
+            <Typography>
                 Please import a playlist:
             </Typography>
             <ImportFileButton accept=".json,application/json" onFileImported={processFile}>
                 Import Playlist
             </ImportFileButton>
             {playlistError && (
-                <Typography variant="body1" className="error-text">
+                <Typography className="error-text">
                     {playlistError}
                 </Typography>
             )}
