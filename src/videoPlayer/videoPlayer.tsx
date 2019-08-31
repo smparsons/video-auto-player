@@ -31,8 +31,6 @@ const buildNextVideoMap = (groups: VideoGroup[]): NextVideoMap => {
 
 export const VideoPlayer = ({ playlist }: VideoPlayerProps): JSX.Element => {
     const [videoPlayerState, setVideoPlayerState] = React.useState(videoPlayerInitialState)
-    const { currentVideo, nextVideo } = videoPlayerState
-
     const nextVideoMapRef = React.useRef<NextVideoMap | null>(null)
 
     const getNextVideo = (currentVideoId: number): Video => {
@@ -43,12 +41,15 @@ export const VideoPlayer = ({ playlist }: VideoPlayerProps): JSX.Element => {
         return nextVideoMapRef.current[currentVideoId]
     }
 
+    const { currentVideo, nextVideo } = videoPlayerState
+    const { options: { autoFullscreen } } = playlist;
+
     return (
         <Grid container={true} spacing={2}>
             <Grid item={true} md={8} sm={12} xs={12}>
                 <VideoDisplay
                     video={currentVideo}
-                    autoFullscreen={true}
+                    autoFullscreen={autoFullscreen}
                     onVideoFinished={() => {
                         if (nextVideo) {
                             setVideoPlayerState({

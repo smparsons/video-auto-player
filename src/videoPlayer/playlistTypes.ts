@@ -1,5 +1,10 @@
 export interface Playlist {
     groups: VideoGroup[]
+    options: PlaylistOptions
+}
+
+export interface PlaylistOptions {
+    autoFullscreen?: boolean
 }
 
 export interface VideoGroup {

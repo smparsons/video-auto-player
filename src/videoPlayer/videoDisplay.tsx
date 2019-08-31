@@ -52,7 +52,7 @@ export const VideoDisplay = ({ autoFullscreen, video, onVideoFinished }: VideoDi
 }
 
 interface VideoDisplayProps {
-    autoFullscreen: boolean
+    autoFullscreen?: boolean
     video: Video | null
     onVideoFinished: () => void
 }

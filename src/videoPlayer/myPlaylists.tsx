@@ -18,9 +18,9 @@ const readPlaylistJsonFromFile = (file: File): Promise<Playlist> => new Promise(
 const validateRequiredString = (value: any): boolean => value && typeof value === "string"
 
 const playlistInValidFormat = (playlist: Playlist): boolean => {
-    const { groups } = playlist
+    const { groups, options } = playlist
 
-    return Array.isArray(groups) && groups.every((videoGroup) => {
+    return Array.isArray(groups) && !!options && groups.every((videoGroup) => {
         const { groupId, groupName, videos } = videoGroup
 
         return Number.isInteger(groupId)
