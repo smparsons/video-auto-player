@@ -42,7 +42,7 @@ export const VideoPlayer = ({ playlist }: VideoPlayerProps): JSX.Element => {
     }
 
     const { currentVideo, nextVideo } = videoPlayerState
-    const { options: { autoFullscreen } } = playlist;
+    const { options: { autoFullscreen } } = playlist
 
     return (
         <Grid container={true} spacing={2}>
