@@ -2,6 +2,7 @@ import { Typography } from '@material-ui/core'
 import * as React from 'react'
 
 import { ImportFileButton } from '../components'
+import { PlaylistItemContainer } from './playlistItemContainer'
 import { Playlist } from './playlistTypes'
 
 const readPlaylistJsonFromFile = (file: File): Promise<Playlist> => new Promise((resolve) => {
@@ -18,9 +19,12 @@ const readPlaylistJsonFromFile = (file: File): Promise<Playlist> => new Promise(
 const validateRequiredString = (value: any): boolean => value && typeof value === "string"
 
 const playlistInValidFormat = (playlist: Playlist): boolean => {
-    const { groups, options } = playlist
+    const { groups, name, options } = playlist
 
-    return Array.isArray(groups) && !!options && groups.every((videoGroup) => {
+    return Array.isArray(groups)
+        && validateRequiredString(name)
+        && !!options
+        && groups.every((videoGroup) => {
         const { groupId, groupName, videos } = videoGroup
 
         return Number.isInteger(groupId)
@@ -36,14 +40,34 @@ const playlistInValidFormat = (playlist: Playlist): boolean => {
     })
 }
 
+const fetchPlaylists = (): Playlist[] => {
+    const storedPlaylists = localStorage.getItem('playlists')
+    return storedPlaylists ? JSON.parse(storedPlaylists) : {}
+}
+
+const storePlaylist = (existingPlaylists: Playlist[], changedPlaylist: Playlist): void => {
+    const updatedPlaylists = {
+        ...existingPlaylists,
+        [changedPlaylist.name]: changedPlaylist
+    }
+    localStorage.setItem('playlists', JSON.stringify(updatedPlaylists))
+}
+
 export const MyPlaylists = ({ onPlaylistSelected }: MyPlaylistsProps): JSX.Element => {
     const [playlistError, setPlaylistError] = React.useState(null as string | null)
+    const [playlists, setPlaylists] = React.useState(null as Playlist[] | null)
+
+    React.useEffect(() => {
+        const myPlaylists = fetchPlaylists()
+        setPlaylists(myPlaylists)
+    }, [])
 
     const processFile = async (fileList: FileList | null): Promise<void> => {
         const importedPlaylist = fileList && fileList[0]
-        if (importedPlaylist) {
+        if (playlists && importedPlaylist) {
             const playlistJson = await readPlaylistJsonFromFile(importedPlaylist)
             if (playlistInValidFormat(playlistJson)) {
+                storePlaylist(playlists, playlistJson)
                 onPlaylistSelected(playlistJson)
             } else {
                 setPlaylistError("The imported playlist is in an incorrect format.")
@@ -52,19 +76,22 @@ export const MyPlaylists = ({ onPlaylistSelected }: MyPlaylistsProps): JSX.Eleme
     }
 
     return (
-        <>
-            <Typography>
-                Please import a playlist:
-            </Typography>
-            <ImportFileButton accept=".json,application/json" onFileImported={processFile}>
-                Import Playlist
-            </ImportFileButton>
-            {playlistError && (
-                <Typography className="error-text">
-                    {playlistError}
-                </Typography>
-            )}
-        </>
+        <div className="extra-large-gap-grid">
+            <div className="medium-gap-column-grid">
+                <ImportFileButton accept=".json,application/json" onFileImported={processFile}>
+                    Import Playlist
+                </ImportFileButton>
+                {playlistError && (
+                    <Typography className="error-text">
+                        {playlistError}
+                    </Typography>
+                )}
+            </div>
+            <PlaylistItemContainer
+                playlists={playlists}
+                onPlaylistOpen={onPlaylistSelected}
+            />
+        </div>
     )
 }
 

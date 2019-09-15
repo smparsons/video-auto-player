@@ -1,5 +1,6 @@
 export interface Playlist {
-    groups: VideoGroup[]
+    groups: VideoGroup[],
+    name: string,
     options: PlaylistOptions
 }
 

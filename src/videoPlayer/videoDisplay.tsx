@@ -22,7 +22,7 @@ export const VideoDisplay = ({ autoFullscreen, video, onVideoFinished }: VideoDi
 
     return (
         <Paper className="video-player-section">
-            <div className="video-display">
+            <div className="large-gap-grid">
                 {video
                     ? (
                         <>

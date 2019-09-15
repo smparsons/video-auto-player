@@ -19,6 +19,28 @@
     max-height: 90vh;
 }
 
+.large-gap-grid {
+    display: grid;
+    grid-gap: 16px;
+}
+
+.extra-large-gap-grid {
+    display: grid;
+    grid-gap: 32px;
+}
+
+.medium-gap-column-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 8px;
+    justify-content: start; 
+}
+
+.playlist-item-container {
+    display: grid;
+    margin: 16px 0;
+}
+
 .playlist-video-item {
     cursor: pointer;
 }
@@ -29,11 +51,6 @@
 
 .playlist-video-item.selected {
     background: #e6e6e6
-}
-
-.video-display {
-    display: grid;
-    grid-gap: 16px;
 }
 
 .video-wrapper {
