@@ -1,8 +1,8 @@
 import { Typography } from '@material-ui/core'
 import * as React from 'react'
 
+import { Playlist } from '../playlistTypes'
 import { PlaylistItem } from './playlistItem'
-import { Playlist } from './playlistTypes'
 
 export const PlaylistItemContainer = ({ playlists, onPlaylistOpen }: PlaylistItemContainerProps): JSX.Element => {
     const playlistCollection = playlists ? Object.values(playlists) : null

@@ -1,8 +1,8 @@
 import { Grid } from '@material-ui/core'
 import * as React from 'react'
 
+import { Playlist, Video, VideoGroup } from '../playlistTypes'
 import { PlaylistContent } from './playlistContent'
-import { Playlist, Video, VideoGroup } from './playlistTypes'
 import { VideoDisplay } from './videoDisplay'
 
 interface VideoPlayerState {

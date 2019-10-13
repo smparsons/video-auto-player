@@ -1,9 +1,9 @@
 import { Typography } from '@material-ui/core'
 import * as React from 'react'
 
-import { ImportFileButton } from '../components'
+import { ImportFileButton } from '../../components'
+import { Playlist } from '../playlistTypes'
 import { PlaylistItemContainer } from './playlistItemContainer'
-import { Playlist } from './playlistTypes'
 
 const readPlaylistJsonFromFile = (file: File): Promise<Playlist> => new Promise((resolve) => {
     const reader = new FileReader()

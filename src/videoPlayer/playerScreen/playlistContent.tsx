@@ -11,7 +11,7 @@ import {
 import { ExpandMore } from '@material-ui/icons'
 import * as React from 'react'
 
-import { Playlist, Video, VideoGroup } from './playlistTypes'
+import { Playlist, Video, VideoGroup } from '../playlistTypes'
 
 export const PlaylistContent = ({ playlist, currentVideo, onVideoSelected }: PlaylistContentProps): JSX.Element => {
     const { groups } = playlist

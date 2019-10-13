@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import { MyPlaylists } from './myPlaylists'
+import { VideoPlayer } from './playerScreen/'
 import { Playlist } from './playlistTypes'
-import { VideoPlayer } from './videoPlayer'
+import { MyPlaylists } from './selectionScreen'
 
 export const VideoPlayerPage = (): JSX.Element => {
     const [playlistJson, setPlaylistJson] = React.useState(null as Playlist | null)

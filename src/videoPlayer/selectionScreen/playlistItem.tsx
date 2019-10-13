@@ -1,8 +1,8 @@
 import { Button, Typography } from '@material-ui/core'
 import * as React from 'react'
 
-import { ExportFileButton } from '../components'
-import { Playlist } from './playlistTypes'
+import { ExportFileButton } from '../../components'
+import { Playlist } from '../playlistTypes'
 
 export const PlaylistItem = ({ playlist, onOpen }: PlaylistProps): JSX.Element => {
     const { name } = playlist

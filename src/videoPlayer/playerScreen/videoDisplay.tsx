@@ -2,7 +2,7 @@ import { Paper, Typography } from '@material-ui/core'
 import Plyr from 'plyr'
 import * as React from 'react'
 
-import { Video } from './playlistTypes'
+import { Video } from '../playlistTypes'
 
 export const VideoDisplay = ({ autoFullscreen, video, onVideoFinished }: VideoDisplayProps): JSX.Element => {
     const videoRef = React.useRef(null)
