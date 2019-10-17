@@ -1,5 +1,5 @@
 {
-  "name": "autoplaylist",
+  "name": "video-auto-player",
   "version": "1.0.0",
   "description": "A web app that autoplays custom-made online video playlists",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smparsons/autoplaylist.git"
+    "url": "git+https://github.com/smparsons/video-auto-player.git"
   },
   "author": "Samuel Parsons",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/smparsons/autoplaylist/issues"
+    "url": "https://github.com/smparsons/video-auto-player/issues"
   },
-  "homepage": "https://github.com/smparsons/autoplaylist#readme",
+  "homepage": "https://github.com/smparsons/video-auto-player#readme",
   "dependencies": {
     "@material-ui/core": "^4.4.0",
     "@material-ui/icons": "^4.2.1",

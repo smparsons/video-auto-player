@@ -1,4 +1,4 @@
-# autoplaylist
+# Video AutoPlayer
 
 A web app that autoplays custom-made online video playlists. So far this project is in its initial stage and is a work in progress. It does work though, and I continue to add to it as often as I can.
 
