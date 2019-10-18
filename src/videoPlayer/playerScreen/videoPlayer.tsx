@@ -1,4 +1,4 @@
-import { Grid } from '@material-ui/core'
+import { Grid, Link } from '@material-ui/core'
 import * as React from 'react'
 
 import { Playlist, Video, VideoGroup } from '../playlistTypes'
@@ -29,7 +29,7 @@ const buildNextVideoMap = (groups: VideoGroup[]): NextVideoMap => {
     }), {})
 }
 
-export const VideoPlayer = ({ playlist }: VideoPlayerProps): JSX.Element => {
+export const VideoPlayer = ({ playlist, onBack }: VideoPlayerProps): JSX.Element => {
     const [videoPlayerState, setVideoPlayerState] = React.useState(videoPlayerInitialState)
     const nextVideoMapRef = React.useRef<NextVideoMap | null>(null)
 
@@ -46,6 +46,11 @@ export const VideoPlayer = ({ playlist }: VideoPlayerProps): JSX.Element => {
 
     return (
         <Grid container={true} spacing={2}>
+            <Grid item={true} md={12} sm={12} xs={12}>
+                <Link href="#" onClick={onBack} variant="subtitle1">
+                    <strong>{`< Back to Playlist Selection`}</strong>
+                </Link>
+            </Grid>
             <Grid item={true} md={8} sm={12} xs={12}>
                 <VideoDisplay
                     video={currentVideo}
@@ -77,5 +82,6 @@ export const VideoPlayer = ({ playlist }: VideoPlayerProps): JSX.Element => {
 }
 
 interface VideoPlayerProps {
-    playlist: Playlist
+    playlist: Playlist,
+    onBack: () => void
 }

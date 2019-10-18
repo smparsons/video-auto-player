@@ -44,8 +44,12 @@ export const VideoPlayerPage = (): JSX.Element => {
     return (
         <div className="video-player-wrapper">
             {selectedPlaylist
-                ? <VideoPlayer playlist={selectedPlaylist} />
-                : (
+                ? (
+                    <VideoPlayer
+                        playlist={selectedPlaylist}
+                        onBack={() => setSelectedPlaylist(null)}
+                    />
+                ) : (
                     <MyPlaylists
                         playlists={playlists}
                         onPlaylistSelected={setSelectedPlaylist}
