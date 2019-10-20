@@ -5,8 +5,8 @@ import * as ReactDOM from 'react-dom'
 
 import { ApplicationBar } from './components'
 import { VideoPlayerPage } from './videoPlayer'
-import './css/index.css'
-import './css/plyr.min.css'
+import '../styles/app.css'
+import '../styles/plyr.min.css'
 
 export const App = (): JSX.Element => {
     const theme = createMuiTheme({ palette: { type: 'dark' } })
