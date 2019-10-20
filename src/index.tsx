@@ -9,7 +9,7 @@ import './css/index.css'
 import './css/plyr.min.css'
 
 export const App = (): JSX.Element => {
-    const theme = createMuiTheme({ palette: { type: 'dark' } });
+    const theme = createMuiTheme({ palette: { type: 'dark' } })
     return (
         <MuiThemeProvider theme={theme}>
             <CssBaseline />
