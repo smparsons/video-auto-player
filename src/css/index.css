@@ -46,11 +46,11 @@
 }
 
 .playlist-video-item:hover {
-    background: #f2f2f2
+    background: #737373
 }
 
 .playlist-video-item.selected {
-    background: #e6e6e6
+    background: #666666
 }
 
 .video-wrapper {

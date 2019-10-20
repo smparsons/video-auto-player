@@ -47,7 +47,7 @@ export const VideoPlayer = ({ playlist, onBack }: VideoPlayerProps): JSX.Element
     return (
         <Grid container={true} spacing={2}>
             <Grid item={true} md={12} sm={12} xs={12}>
-                <Link href="#" onClick={onBack} variant="subtitle1">
+                <Link href="#" onClick={onBack} variant="subtitle1" color="inherit">
                     <strong>{`< Back to Playlist Selection`}</strong>
                 </Link>
             </Grid>
