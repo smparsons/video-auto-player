@@ -50,6 +50,7 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   devServer: {
     publicPath: '/',
+    historyApiFallback: true,
     contentBase: path.resolve(__dirname, 'build'),
     hot: true
   }

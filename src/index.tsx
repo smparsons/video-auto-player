@@ -3,7 +3,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
-import { VideoPlayerPage } from './videoPlayer'
+import { AppRouter } from './appRouter'
 import '../styles/app.css'
 import '../styles/plyr.min.css'
 
@@ -21,7 +21,7 @@ export const App = (): JSX.Element => {
         <MuiThemeProvider theme={theme}>
             <CssBaseline />
             <ApplicationBar />
-            <VideoPlayerPage />
+            <AppRouter />
         </MuiThemeProvider>
     )
 }
