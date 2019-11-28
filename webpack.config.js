@@ -4,7 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const DESTINATION = path.resolve(__dirname, 'build')
 
-module.exports = {
+const BASE_DEVELOPMENT_URL = '/'
+const BASE_PRODUCTION_URL = '/video-auto-player'
+
+module.exports = (_, argv) => ({
   entry: ['./src/index.tsx'],
   output: {
     filename: 'bundle.js',
@@ -45,6 +48,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html'
+    }),
+    new webpack.EnvironmentPlugin({
+      BASE_URL: argv.mode === 'production' 
+        ? BASE_PRODUCTION_URL 
+        : BASE_DEVELOPMENT_URL
     })
   ],
   devtool: 'cheap-module-source-map',
@@ -54,4 +62,4 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'build'),
     hot: true
   }
-}
+})
