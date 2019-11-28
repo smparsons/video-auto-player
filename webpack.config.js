@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const DESTINATION = path.resolve(__dirname, 'build')
 
 const BASE_DEVELOPMENT_URL = '/'
-const BASE_PRODUCTION_URL = '/video-auto-player'
+const BASE_PRODUCTION_URL = '/video-auto-player/'
 
 module.exports = (_, argv) => ({
   entry: ['./src/index.tsx'],
