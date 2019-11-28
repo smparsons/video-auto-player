@@ -8,7 +8,8 @@ module.exports = {
   entry: ['./src/index.tsx'],
   output: {
     filename: 'bundle.js',
-    path: DESTINATION
+    path: DESTINATION,
+    publicPath: '/'
   },
   resolve: {
     alias: {
