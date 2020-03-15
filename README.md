@@ -2,7 +2,7 @@
 
 A simple tool that I wrote which allows me to autoplay a list of online videos. To use the player, the user first needs to import a JSON file which contains a list of the online videos. The player will then interpret the JSON file and display a simple UI which allows the user to select which video to watch. After a video is finished playing, the UI will automatically play the next video in the playlist.
 
-## Required JSON Strutcture
+## Required JSON Structure
 
 Here is an example that illustrates the expected structure of an imported JSON file:
 
