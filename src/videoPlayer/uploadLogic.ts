@@ -1,6 +1,6 @@
 import { Playlist } from './playlistTypes'
 
-export const readPlaylistJsonFromFile = async (file: File): Promise<Playlist> => (
+export const readPlaylistJsonFromFile = (file: File): Promise<Playlist> => (
     new Promise((resolve, reject) => {
         const reader = new FileReader()
         reader.onload = () => {
@@ -28,17 +28,17 @@ export const playlistInValidFormat = (playlist: Playlist): boolean => {
         && !!options
         && !!groups.length
         && groups.every((videoGroup) => {
-        const { groupName, videos } = videoGroup
+            const { groupName, videos } = videoGroup
 
-        return validateRequiredString(groupName)
-            && Array.isArray(videos)
-            && !!videos.length
-            && videos.every((video) => {
-                const { description, title, url } = video
+            return validateRequiredString(groupName)
+                && Array.isArray(videos)
+                && !!videos.length
+                && videos.every((video) => {
+                    const { description, title, url } = video
 
-                return validateRequiredString(description)
-                    && validateRequiredString(title)
-                    && validateRequiredString(url)
-            })
+                    return validateRequiredString(description)
+                        && validateRequiredString(title)
+                        && validateRequiredString(url)
+                })
     })
 }

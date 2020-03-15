@@ -1,4 +1,4 @@
-import { Grid } from '@material-ui/core'
+import { Grid, Paper } from '@material-ui/core'
 import * as React from 'react'
 
 import { PlaylistSidebar } from './playlistSidebar'
@@ -15,7 +15,7 @@ const videoPlayerInitialState = {
     nextVideo: null
 } as VideoPlayerState
 
-interface NextVideoMap { [currentVideoId: number]: Video }
+interface NextVideoMap { [currentVideoTitle: string]: Video }
 
 const flatMap = <T, U>(array: T[], callbackFn: (value: T, index: number, array: T[]) => U[]): U[] => {
     return Array.prototype.concat(...array.map(callbackFn))
@@ -32,7 +32,7 @@ const buildNextVideoMap = (playlist: Playlist | null): NextVideoMap => {
 
 export const VideoPlayer = ({ currentPlaylist, onPlaylistUploaded, uploadError }: VideoPlayerProps): JSX.Element => {
     const [videoPlayerState, setVideoPlayerState] = React.useState(videoPlayerInitialState)
-    const nextVideoMapRef = React.useRef<NextVideoMap | null>(null)
+    const nextVideoMapRef = React.useRef(null as NextVideoMap | null)
 
     React.useEffect(() => {
         setVideoPlayerState(videoPlayerInitialState)
@@ -67,20 +67,22 @@ export const VideoPlayer = ({ currentPlaylist, onPlaylistUploaded, uploadError }
                 />
             </Grid>
             <Grid item={true} md={9} sm={12} xs={12}>
-                {currentPlaylist && currentVideo && (
-                    <VideoDisplay
-                        video={currentVideo}
-                        autoFullscreen={autoFullscreen}
-                        onVideoFinished={() => {
-                            if (nextVideo) {
-                                setVideoPlayerState({
-                                    currentVideo: nextVideo,
-                                    nextVideo: getNextVideo(nextVideo.title)
-                                })
-                            }
-                        }}
-                    />
-                )}
+                <Paper className="video-display-wrapper">
+                    {currentPlaylist && currentVideo && (
+                        <VideoDisplay
+                            video={currentVideo}
+                            autoFullscreen={autoFullscreen}
+                            onVideoFinished={() => {
+                                if (nextVideo) {
+                                    setVideoPlayerState({
+                                        currentVideo: nextVideo,
+                                        nextVideo: getNextVideo(nextVideo.title)
+                                    })
+                                }
+                            }}
+                        />
+                    )}
+                </Paper>
             </Grid>
         </Grid>
     )

@@ -22,7 +22,7 @@ export const PlaylistSidebar = ({
     currentVideo
 }: PlaylistSidebarProps): JSX.Element => {
     const groups = playlist ? playlist.groups : []
-    const initialGroupName = groups.length ? groups[0].groupName : false as number | false
+    const initialGroupName = groups.length ? groups[0].groupName : false as string | false
     const [currentGroupName, setCurrentGroupName] = React.useState(initialGroupName)
 
     const mapGroupVideo = (video: Video): JSX.Element => {

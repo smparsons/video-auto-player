@@ -4,7 +4,7 @@ A simple tool that I wrote which allows me to autoplay a list of online videos. 
 
 ## Required JSON Strutcture
 
-Here is an example that illustrates the expected structure of an imported JSON files:
+Here is an example that illustrates the expected structure of an imported JSON file:
 
 ```json
 {
