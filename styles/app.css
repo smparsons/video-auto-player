@@ -1,59 +1,77 @@
-.video-player-wrapper {
-    padding: 16px;
-}
-
 .hidden-file-input {
     display: none;
 }
 
-.error-text {
+.upload-error {
+    padding-left: 24px;
     color: red;
 }
 
-.video-player-section {
+.video-display-wrapper {
+    overflow-y: scroll;
+    height: 100vh;
     padding: 16px;
 }
 
-.playlist {
-    overflow-y: scroll;
-    max-height: 90vh;
-}
-
-.large-gap-grid {
+.video-display {
     display: grid;
-    grid-gap: 16px;
+    gap: 16px;
 }
 
-.extra-large-gap-grid {
-    display: grid;
-    grid-gap: 32px;
+.video-display .subtitle {
+    font-weight: bold;
 }
 
-.medium-gap-column-grid {
-    display: grid;
-    grid-auto-flow: column;
-    grid-gap: 8px;
-    justify-content: start; 
-}
-
-.playlist-item-container {
-    display: grid;
-    margin: 16px 0;
-}
-
-.playlist-video-item {
-    cursor: pointer;
-}
-
-.playlist-video-item:hover {
-    background: #737373
-}
-
-.playlist-video-item.selected {
-    background: #666666
+.video-display hr {
+    background: #666666;
 }
 
 .video-wrapper {
     height: 80%;
     width: 80%;
+}
+
+.playlist-sidebar {
+    height: 100vh;
+    background: #323232 !important;
+    border: 1px solid #666666;
+    display: grid;
+    gap: 16px;
+    align-content: start;
+}
+
+.playlist-content {
+    overflow-y: scroll;
+}
+
+.playlist-video-group {
+    background: #323232 !important;
+}
+
+.list-item {
+    cursor: pointer;
+}
+
+.list-item:hover {
+    background: #424242;
+}
+
+.list-item.selected {
+    background: #666666;
+}
+
+.toolbar {
+    display: grid !important;
+    grid-auto-flow: column;
+    grid-template-columns: auto 1fr;
+}
+
+.toolbar-buttons {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: right;
+}
+
+.toolbar-button:hover {
+    background-color: #424242 !important;
 }

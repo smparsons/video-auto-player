@@ -20,6 +20,7 @@
     "jsx-no-multiline-js": false,
     "object-literal-sort-keys": false,
     "jsx-no-lambda": false,
+    "one-line": false,
     "quotemark": false,
     "semicolon": false,
     "trailing-comma": false,
