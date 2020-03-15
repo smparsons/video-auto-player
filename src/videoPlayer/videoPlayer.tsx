@@ -30,7 +30,11 @@ const buildNextVideoMap = (playlist: Playlist | null): NextVideoMap => {
     }), {})
 }
 
-export const VideoPlayer = ({ currentPlaylist, onPlaylistUploaded, uploadError }: VideoPlayerProps): JSX.Element => {
+export const VideoPlayer = ({
+    currentPlaylist,
+    onPlaylistUploaded,
+    uploadError
+}: VideoPlayerProps): JSX.Element => {
     const [videoPlayerState, setVideoPlayerState] = React.useState(videoPlayerInitialState)
     const nextVideoMapRef = React.useRef(null as NextVideoMap | null)
 
