@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const DESTINATION = path.resolve(__dirname, 'build')
@@ -42,6 +43,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new CopyWebpackPlugin([
+      { from: './favicons' }
+    ]),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html'
